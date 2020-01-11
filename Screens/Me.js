@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { me } from '../Config/Data';
+import Header from '../Components/UserDetails/Header';
+import Actions from '../Components/UserDetails/Actions'
+import Info from '../Components/UserDetails/Info'
 
 class Me extends Component {
   constructor(props) {
@@ -10,8 +14,11 @@ class Me extends Component {
 
   render() {
     return (
-      <View style={styles.text}>
-        <Text> Me Screen </Text>
+      <View>
+        <Header {...me} />
+        <Actions {...me} />
+        <Info {...me} />
+        
       </View>
     );
   }

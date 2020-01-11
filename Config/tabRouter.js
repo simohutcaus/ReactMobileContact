@@ -11,6 +11,25 @@ import NewContact from '../Screens/NewContact';
 import Me from '../Screens/Me';
 import ContactsStack from './router';
 
+
+const activityStackNavigator = createStackNavigator({
+  Me: {
+    screen: Me,
+    navigationOption: {
+      headerTitle: 'Some title...'
+    }
+  },
+})
+
+const newContactStackNavigator = createStackNavigator({
+  NewContact: {
+    screen: NewContact,
+    navigationOption: {
+      headerTitle: 'Some title...'
+    }
+  },
+})
+
 const TabNavigator = createBottomTabNavigator({
     Contacts: {
         screen: ContactsStack,
@@ -20,18 +39,17 @@ const TabNavigator = createBottomTabNavigator({
         }
     },
     NewContact: {
-      screen: NewContact,
+      screen: newContactStackNavigator,
       navigationOptions: {
         tabBarLabel: 'New Contact',
         tabBarIcon: ({ tintColor }) => <Icon name="ios-add" size={35} color={tintColor} />
-    }
+      }
     },
     Me: {
-      screen: Me,
+      screen: activityStackNavigator,
       navigationOptions: {
-        tabBarLabel: 'Me',
-        tabBarIcon: ({ tintColor }) => <Icon name="ios-contact" size={35} color={tintColor} />
-    }  
+        tabBarIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />
+      }
     }
   });
   

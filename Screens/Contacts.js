@@ -8,6 +8,14 @@ import ListItem  from '../Components/ListItem/ListItem';
 
 class Contacts extends Component {
 
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: contacts
+    };
+  }
+
   handleRowPress = (item) => {
     this.props.navigation.navigate('Details', item)
   }
@@ -16,7 +24,7 @@ class Contacts extends Component {
     return (
       <FlatList
         style={{ backgroundColor: colors.background }}
-        data={contacts}
+        data={this.state.test}
         renderItem={({ item }) =>
           <ListItem contact={item} onPress={() => this.handleRowPress(item)} />
         }

@@ -19,7 +19,13 @@ const AppNavigator = createStackNavigator({
       navigationOptions: ({ navigation }) => ({
         title: `${capitalizeFirstLetter(navigation.state.params.name.first)} ${capitalizeFirstLetter(navigation.state.params.name.last)}`
       }),
-      }
+      },
+
+  Me: {
+    screen: Me,
+    navigationOptions: {
+    }
+  }
   },
 );
 

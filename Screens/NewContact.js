@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import CustomTextInput from '../Components/TextInput/TextInput';
+import colors from '../Config/Colors';
 
 class NewContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
     };
   }
 
+  onInputChange = (text, stateKey) => {
+    const mod = {};
+    mod[stateKey] = text;
+    this.setState(mod)
+  }
   render() {
     return (
-      <View style={styles.text}>
-        <Text> New Contact Screen </Text>
-      </View>
+      <ScrollView style={{backgroundColor: colors.background }}>
+        <CustomTextInput
+        placeholder="First Name..."
+        onChangeText={(text) => this.onInputChange(text, 'firstName')}
+        />
+        <CustomTextInput
+        placeholder="Last Name..."
+        onChangeText={(text) => this.onInputChange(text, 'lastName')}
+        />
+      </ScrollView>
     );
   }
 }
